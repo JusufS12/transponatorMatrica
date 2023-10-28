@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define error(msg, ...) printf("[!] " msg "\n", ##__VA_ARGS__)
 #define POINT "V\n"
 
 
@@ -27,6 +28,11 @@ int main(int const argc, char* const argv[]) {
 
     int n = atoi(argv[1]);
     int m = atoi(argv[2]);
+
+    if(n <= 0 || m <= 0) {
+        error("arguments must be integers bigger than 0");
+        return EXIT_FAILURE;
+    }
     
     grafickiPrikaz(n, m);
     return EXIT_SUCCESS;

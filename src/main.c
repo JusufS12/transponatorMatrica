@@ -1,40 +1,30 @@
+#include "../inc/matriceio.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-#define error(msg, ...) printf("[!] " msg "\n", ##__VA_ARGS__)
-#define POINT "V\n"
 
+void transponator(int mat[3][3], int tmat[3][3]) {
 
-void grafickiPrikaz(int n, int m) {
+    size_t i, j;
 
-    int i, j;
-
-    for (i = 0; i < n; i++) {
-        for (j = 0; j < m; j++) {
-            printf("[] ");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            tmat[j][i] = mat[i][j];
         }
-        printf("\n");
     }
-
 }
 
+int main(void) {
 
-int main(int const argc, char* const argv[]) {
+    int matrica[3][3];
+    int transponant[3][3];
 
-    if(argc != 3) {
-        puts("usage: tmat <number of columns> <number of rows>");
-        return EXIT_FAILURE;
-    }
+    popuniMatricu(matrica);
+    prikazMatrice(matrica);
 
-    int n = atoi(argv[1]);
-    int m = atoi(argv[2]);
+    transponator(matrica, transponant);
+    prikazMatrice(transponant);
 
-    if(n <= 0 || m <= 0) {
-        error("arguments must be integers bigger than 0");
-        return EXIT_FAILURE;
-    }
-    
-    grafickiPrikaz(n, m);
     return EXIT_SUCCESS;
 
 }

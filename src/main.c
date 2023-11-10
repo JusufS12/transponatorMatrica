@@ -26,5 +26,4 @@ int main(void) {
     prikazMatrice(transponant);
 
     return EXIT_SUCCESS;
-
 }

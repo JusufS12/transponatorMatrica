@@ -14,12 +14,19 @@ void transponator(int mat[3][3], int tmat[3][3]) {
     }
 }
 
-int main(void) {
+int main(int const argc, char* const argv[]) {
 
-    int matrica[3][3];
-    int transponant[3][3];
+    if (argCheck(argc, argv) != EXIT_SUCCESS) {
+        return EXIT_FAILURE;
+    }
 
-    popuniMatricu(matrica);
+    int matrica[stN][stM];
+    int transponant[stN][stM];
+
+    if (popuniMatricu(matrica) != EXIT_SUCCESS) {
+        return EXIT_FAILURE;
+    }
+    
     prikazMatrice(matrica);
 
     transponator(matrica, transponant);

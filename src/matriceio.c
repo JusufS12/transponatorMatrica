@@ -36,6 +36,7 @@ int grafickiPrikaz(size_t red, size_t stupac) {
 		return EXIT_FAILURE;
 	}
 
+	putchar('\n');
 	for (i = 0; i < stN; i++) {
 		if (red == i) {
 			pointPrint(stupac);
@@ -52,8 +53,8 @@ int grafickiPrikaz(size_t red, size_t stupac) {
 
 int popuniMatricu(int mat[stN][stM]) {
 	size_t i, j;
-	for (i = 0; i < 3; i++) {
-		for (j = 0; j < 3; j++) {
+	for (i = 0; i < stN; i++) {
+		for (j = 0; j < stM; j++) {
 			if (grafickiPrikaz(i, j) != EXIT_SUCCESS) {
 				return EXIT_FAILURE;
 			} 
@@ -63,9 +64,16 @@ int popuniMatricu(int mat[stN][stM]) {
 	return EXIT_SUCCESS;
 }
 
-void prikazMatrice(int mat[3][3]) {
-	printf("[%d] [%d] [%d]\n[%d] [%d] [%d]\n[%d] [%d] [%d]\n", mat[0][0], mat[0][1], mat[0][2], mat[1][0], mat[1][1], mat[1][2], mat[2][0], mat[2][1], mat[2][2]);
-	puts("\n");
+void prikazMatrice(int mat[stN][stM]) {
+	size_t i, j;
+	putchar('\n');
+	for (i = 0; i < stN; i++) {
+		for (j = 0; j < stM; j++) {
+			printf("[%d] ", mat[i][j]);
+		}
+		printf("\n");
+	}
+	putchar('\n');
 }
 
 int argCheck(int const argc, char* const argv[]) {

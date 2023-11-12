@@ -76,18 +76,13 @@ void prikazMatrice(int mat[stN][stM]) {
 	putchar('\n');
 }
 
-int argCheck(int const argc, char* const argv[]) {
+int setMatrixSize(size_t n, size_t m) {
 
-	if(argc != 3) {
-		puts("usage: tmat <number of columns> <number of rows>");
-		return EXIT_FAILURE;
-	}
-
-	stN = atoi(argv[1]);
-	stM = atoi(argv[2]);
+	stN = n;
+	stM = m;
 
 	if(stN <= 0 || stM <= 0) {
-		error("arguments must be integers bigger than 0");
+		error("matrix size must be bigger than 0");
 		return EXIT_FAILURE;
 	}
 

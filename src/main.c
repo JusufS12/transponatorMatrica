@@ -20,7 +20,12 @@ void transponator(int mat[stN][stM], int tmat[stM][stN]) {
 
 int main(int const argc, char* const argv[]) {
 
-    if (argCheck(argc, argv) != EXIT_SUCCESS) {
+    if(argc != 3) {
+		puts("usage: tmat <number of columns> <number of rows>");
+		return EXIT_FAILURE;
+	}
+
+    if (setMatrixSize(atoi(argv[1]), atoi(argv[2])) != EXIT_SUCCESS) {
         return EXIT_FAILURE;
     }
 

@@ -6,7 +6,7 @@
 //dimenzije matrice
 extern size_t stN, stM;
 
-int argCheck(int const argc, char* const argv[]);
+int setMatrixSize(size_t n, size_t m);
 int popuniMatricu(int mat[stN][stM]);
 void prikazMatrice(int mat[stN][stM]);
 

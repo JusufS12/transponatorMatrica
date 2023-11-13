@@ -7,8 +7,8 @@ void transponator(int mat[stN][stM], int tmat[stM][stN]) {
 
     size_t i, j, tmp;
 
-    for (i = 0; i < (stN - 1); i++) {
-        for (j = 0; j < (stM - 1); j++) {
+    for (i = 0; i < stN; i++) {
+        for (j = 0; j < stM; j++) {
             tmat[j][i] = mat[i][j];
         }
     }

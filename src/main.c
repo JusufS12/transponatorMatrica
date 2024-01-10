@@ -2,44 +2,45 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 void transponator(int mat[stN][stM], int tmat[stM][stN]) {
 
-    size_t i, j, tmp;
+  size_t i, j, tmp;
 
-    for (i = 0; i < stN; i++) {
-        for (j = 0; j < stM; j++) {
-            tmat[j][i] = mat[i][j];
-        }
+  for (i = 0; i < stN; i++) {
+    for (j = 0; j < stM; j++) {
+      tmat[j][i] = mat[i][j];
     }
+  }
 
-    tmp = stN;
-    stN = stM;
-    stM = tmp;
+  tmp = stN;
+  stN = stM;
+  stM = tmp;
 }
 
-int main(int const argc, char* const argv[]) {
+int main(int const argc, char *const argv[]) {
 
-    if(argc != 3) {
-		puts("usage: tmat <number of columns> <number of rows>");
-		return EXIT_FAILURE;
-	}
+  if (argc != 3) {
+    puts("usage: tmat <number of rows> <number of columns>");
+    return EXIT_FAILURE;
+  }
 
-    if (setMatrixSize(atoi(argv[1]), atoi(argv[2])) != EXIT_SUCCESS) {
-        return EXIT_FAILURE;
-    }
+  if (setMatrixSize(atoi(argv[1]), atoi(argv[2])) != EXIT_SUCCESS) {
+    error("Failed to set the matrix size");
+    return EXIT_FAILURE;
+  }
 
-    int matrica[stN][stM];
-    int transponant[stM][stN];
+  int matrica[stN][stM];
+  int transponant[stM][stN];
 
-    if (popuniMatricu(matrica) != EXIT_SUCCESS) {
-        return EXIT_FAILURE;
-    }
-    
-    prikazMatrice(matrica);
+  if (popuniMatricu(matrica) != EXIT_SUCCESS) {
+    error("Failed to fill the matrix");
+    return EXIT_FAILURE;
+  }
 
-    transponator(matrica, transponant);
-    prikazMatrice(transponant);
+  prikazMatrice(matrica);
 
-    return EXIT_SUCCESS;
+  transponator(matrica, transponant);
+  prikazMatrice(transponant);
+
+  return EXIT_SUCCESS;
 }

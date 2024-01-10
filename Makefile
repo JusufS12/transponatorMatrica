@@ -20,6 +20,3 @@ $(OBJ)/main.o: $(SRC)/main.c
 
 clean:
 	rm $(OBJ)/*.o $(OUT)
-
-run:
-	$(OUT)

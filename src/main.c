@@ -25,7 +25,7 @@ int main(int const argc, char *const argv[]) {
   }
 
   if (setMatrixSize(atoi(argv[1]), atoi(argv[2])) != EXIT_SUCCESS) {
-    error("Failed to set the matrix size");
+    error("failed to set the matrix size");
     return EXIT_FAILURE;
   }
 
@@ -33,7 +33,7 @@ int main(int const argc, char *const argv[]) {
   int transponant[stM][stN];
 
   if (popuniMatricu(matrica) != EXIT_SUCCESS) {
-    error("Failed to fill the matrix");
+    error("failed to fill the matrix");
     return EXIT_FAILURE;
   }
 
